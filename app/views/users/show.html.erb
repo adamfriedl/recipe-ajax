@@ -7,8 +7,8 @@
 <ul>
   <% @user.recipes.each do |recipe| %>
     <li><%= link_to recipe.name, recipe_path(recipe) %><br>
-    <button class='js-more' data-id='<%= recipe.id %>'>Preview</button><br >
-    <p id='preview-<%= recipe.id %>'></p>
+    <button class='js-more' data-id='<%= recipe.id %>'>See Description</button><br >
+    <p id='description-<%= recipe.id %>'></p>
     </li>
 
   <% end %>
@@ -20,7 +20,7 @@ $(() => {
   $('.js-more').on('click', function() {
     var id = $(this).data('id');
     $.get('/recipes/' + id, (data) => {
-      $('#preview-' + id).html(data);
+      $('#description-' + id).html(data);
     });
   });
 });
