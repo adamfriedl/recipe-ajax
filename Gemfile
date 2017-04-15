@@ -38,7 +38,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 # Fix console issues with rb-readline
 gem 'rb-readline'
-# Debug with Pry
+# Use Active Model Serializer
+gem 'active_model_serializers'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

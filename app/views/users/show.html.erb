@@ -2,4 +2,15 @@
 
 <p>Account created on <%= @user.created_on %>.</p>
 
-<p>See <%= @user.email %>'s <%= link_to 'recipes', user_recipes_path(@user) %>.</p>
+<h2><%= @user.email %>'s Recipes</h2>
+
+<ul>
+  <% @user.recipes.each do |recipe| %>
+    <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+  <% end %>
+</ul>
+
+
+
+
+<!-- <p>See # <%= @user.email %>'s <%= link_to 'recipes', user_recipes_path(@user) %>.</p> -->
