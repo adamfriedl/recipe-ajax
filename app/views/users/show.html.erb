@@ -19,8 +19,8 @@
 $(() => {
   $('.js-more').on('click', function() {
     var id = $(this).data('id');
-    $.get('/recipes/' + id, (data) => {
-      $('#description-' + id).html(data);
+    $.get('/recipes/' + id + '.json', function(data) {
+      $('#description-' + id).html(data['description']);
     });
   });
 });
