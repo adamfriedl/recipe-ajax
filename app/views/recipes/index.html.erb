@@ -1,0 +1,9 @@
+<% if !params[:user_id] %>
+
+	<%= render partial: 'all_recipes', locals: {recipes: @recipes} %>
+
+<% else %>
+
+	<%= render partial: 'user_recipes', locals: {recipes: @recipes} %>
+
+<% end %>

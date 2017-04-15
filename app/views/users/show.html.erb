@@ -1,0 +1,5 @@
+<h1><%= @user.email %></h1>
+
+<p>Account created on <%= @user.created_on %>.</p>
+
+<p>See <%= @user.email %>'s <%= link_to 'recipes', user_recipes_path(@user) %>.</p>

@@ -1,0 +1,9 @@
+	<h1>All Recipes</h1>
+
+	<%= render partial: 'most_recent', locals: {recipes: @recipes} %>
+
+	<ul>
+		<% recipes.each do |recipe| %>
+			<li><%= link_to recipe.name, recipe_path(recipe) %></li>
+		<% end %>
+	</ul>
