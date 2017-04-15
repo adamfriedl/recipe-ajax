@@ -14,17 +14,13 @@
   <% end %>
 </ul>
 
-
 <script type="text/javascript">
 $(() => {
   $('.js-more').on('click', function() {
     var id = $(this).data('id');
-    $.get('/recipes/' + id + '.json', function(data) {
+    $.get('/recipes/' + id + '.json', (data) => {
       $('#description-' + id).html(data['description']);
     });
   });
 });
 </script>
-
-
-<!-- <p>See # <%= @user.email %>'s <%= link_to 'recipes', user_recipes_path(@user) %>.</p> -->
