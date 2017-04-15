@@ -7,7 +7,7 @@
 <h3>Ingredients</h3>
 <ul>
 	<% @recipe.recipe_ingredients.each do |ri| %>
-	  <li><%= ri.ingredient.name %> -
+	  <li><span class='recipeIngredientName'><%= ri.ingredient.name %></span> -
 	  <%= ri.quantity %> units</li>
 <% end %>
 </ul>
@@ -19,12 +19,14 @@
 
 <script type="text/javascript">
 $(() => {
-  $(".js-next").on("click", function() {
+  $(".js-next").on("click", function(e) {
+		e.preventDefault();
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
-    $.get("/recipes/" + nextId + '.json', function(data) {
-			debugger
+    $.get("/recipes/" + nextId + '.json', (data) => {
+			// debugger
 			$('.recipeName').html(data['name']);
 			$('.recipeDescription').html(data['description']);
+			$('.recipeIngredientName').html(data['recipe_ingredients'][0]['ingredient-id'])
       $('.recipeInstructions').html(data['instructions']);
       // re-set the id to current on the link
       $('.js-next').attr('data-id', data['id']);
