@@ -1,4 +1,4 @@
-<h1><%= @recipe.name %></h1>
+<h1 class="recipeName"><%= @recipe.name %></h1>
 <p>by <%= link_to @recipe.user.email, user_path(@recipe.user) %></p>
 
 <h3>Description</h3>
@@ -22,8 +22,9 @@ $(() => {
   $(".js-next").on("click", function() {
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/recipes/" + nextId + '.json', function(data) {
-			// debugger
-      $(".recipeInstructions").html(data['instructions']);
+			debugger
+			$('.recipeName').html(data['name']);
+      $('.recipeInstructions').html(data['instructions']);
       // re-set the id to current on the link
       $('.js-next').attr('data-id', data['id']);
     });
