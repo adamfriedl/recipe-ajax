@@ -6,11 +6,25 @@
 
 <ul>
   <% @user.recipes.each do |recipe| %>
-    <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+    <li><%= link_to recipe.name, recipe_path(recipe) %><br>
+    <button class='js-more' data-id='<%= recipe.id %>'>Preview</button><br >
+    <p id='preview-<%= recipe.id %>'></p>
+    </li>
+
   <% end %>
 </ul>
 
 
+<script type="text/javascript">
+$(() => {
+  $('.js-more').on('click', function() {
+    var id = $(this).data('id');
+    $.get('/recipes/' + id, (data) => {
+      $('#preview-' + id).html(data);
+    });
+  });
+});
+</script>
 
 
 <!-- <p>See # <%= @user.email %>'s <%= link_to 'recipes', user_recipes_path(@user) %>.</p> -->
