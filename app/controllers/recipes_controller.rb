@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
 			redirect_to @recipe, notice: 'Your recipe was sucessfully created.'
 		else
 			render 'new', notice: 'There was a problem creating your recipe.'
-		end		
+		end
 	end
 
 	def show
@@ -35,7 +35,7 @@ class RecipesController < ApplicationController
 	private
 
 	def recipe_params
-		params.require(:recipe).permit(:name, :instructions, :user_id, ingredients_attributes: [:id, :name, :quantity])
+		params.require(:recipe).permit(:name, :description, :instructions, :user_id, ingredients_attributes: [:id, :name, :quantity])
 	end
-	
+
 end

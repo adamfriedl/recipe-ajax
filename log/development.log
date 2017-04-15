@@ -30001,3 +30001,205 @@ Processing by RecipesController#show as */*
 Completed 200 OK in 87ms (Views: 52.3ms | ActiveRecord: 1.2ms)
 
 
+Started GET "/users/1/recipes/new" for 127.0.0.1 at 2017-04-15 17:10:03 -0400
+Processing by RecipesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/_form.html.erb (9.4ms)
+  Rendered recipes/new.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 98ms (Views: 42.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/recipes/new" for 127.0.0.1 at 2017-04-15 17:11:03 -0400
+Processing by RecipesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/_form.html.erb (4.9ms)
+  Rendered recipes/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 57ms (Views: 49.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/1/recipes/new" for 127.0.0.1 at 2017-04-15 17:11:16 -0400
+Processing by RecipesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/_form.html.erb (10.0ms)
+  Rendered recipes/new.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 73ms (Views: 56.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/1/recipes" for 127.0.0.1 at 2017-04-15 17:11:59 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iWOh+gyVEVr5REV90Q7xz+YdgPCG0u+TEWAv3NOEz2KIvjieWZbMYb7TGfP1wqI+SrLAEEyrCgTREF0O9b9caQ==", "recipe"=>{"name"=>"Steak tartare", "description"=>"Raw steak and mayo", "instructions"=>"Buy some steak and mayo.", "ingredients_attributes"=>{"0"=>{"name"=>"Steak", "quantity"=>"2"}, "1"=>{"name"=>"Mayonnaise", "quantity"=>"2"}, "2"=>{"name"=>"", "quantity"=>""}, "3"=>{"name"=>"", "quantity"=>""}, "4"=>{"name"=>"", "quantity"=>""}}}, "commit"=>"Create Recipe", "user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: description
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "Steak"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Steak"], ["created_at", 2017-04-15 21:11:59 UTC], ["updated_at", 2017-04-15 21:11:59 UTC]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "Mayonnaise"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Mayonnaise"], ["created_at", 2017-04-15 21:11:59 UTC], ["updated_at", 2017-04-15 21:11:59 UTC]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("name", "instructions", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Steak tartare"], ["instructions", "Buy some steak and mayo."], ["user_id", 1], ["created_at", 2017-04-15 21:11:59 UTC], ["updated_at", 2017-04-15 21:11:59 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["recipe_id", 8], ["ingredient_id", 12], ["quantity", "2"], ["created_at", 2017-04-15 21:11:59 UTC], ["updated_at", 2017-04-15 21:11:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["recipe_id", 8], ["ingredient_id", 13], ["quantity", "2"], ["created_at", 2017-04-15 21:11:59 UTC], ["updated_at", 2017-04-15 21:11:59 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "recipes" SET "updated_at" = '2017-04-15 21:11:59.618082' WHERE "recipes"."id" = ?[0m  [["id", 8]]
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "ingredients" SET "updated_at" = '2017-04-15 21:11:59.616131' WHERE "ingredients"."id" = ?[0m  [["id", 12]]
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "ingredients" SET "updated_at" = '2017-04-15 21:11:59.618641' WHERE "ingredients"."id" = ?[0m  [["id", 13]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/recipes/8
+Completed 302 Found in 62ms (ActiveRecord: 7.6ms)
+
+
+Started GET "/recipes/8" for 127.0.0.1 at 2017-04-15 17:11:59 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (0.2ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = 8[0m
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (12, 13)[0m
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 71ms (Views: 57.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/recipes/8" for 127.0.0.1 at 2017-04-15 17:12:57 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (0.1ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = 8[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (12, 13)[0m
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/show.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 117ms (Views: 39.5ms | ActiveRecord: 3.5ms)
+
+
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" ORDER BY "recipes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" ORDER BY "recipes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = ?[0m  [["id", 8]]
+Started GET "/users/1" for 127.0.0.1 at 2017-04-15 17:13:15 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (9.5ms)
+Started GET "/users/1" for 127.0.0.1 at 2017-04-15 17:13:15 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 88ms (Views: 77.2ms | ActiveRecord: 1.3ms)
+
+
+Completed 200 OK in 132ms (Views: 122.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/1/recipes/new" for 127.0.0.1 at 2017-04-15 17:13:18 -0400
+Processing by RecipesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/_form.html.erb (13.3ms)
+  Rendered recipes/new.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 77ms (Views: 59.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/1/recipes" for 127.0.0.1 at 2017-04-15 17:13:47 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S1+Z3X1efsrcZmsMU43K2bW0CU37p3lvpenbfTJQPUY6hkSWcD2oAP9GY7HFNy7skYO/eL8azVePS9dkC0nwJw==", "recipe"=>{"name"=>"Steak tartare", "description"=>"Raw steak and may", "instructions"=>"Buy some steak and some mayo", "ingredients_attributes"=>{"0"=>{"name"=>"Steak", "quantity"=>"2"}, "1"=>{"name"=>"Mayo", "quantity"=>"2"}, "2"=>{"name"=>"", "quantity"=>""}, "3"=>{"name"=>"", "quantity"=>""}, "4"=>{"name"=>"", "quantity"=>""}}}, "commit"=>"Create Recipe", "user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameter: description
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "Steak"], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "Mayo"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Mayo"], ["created_at", 2017-04-15 21:13:47 UTC], ["updated_at", 2017-04-15 21:13:47 UTC]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("name", "instructions", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Steak tartare"], ["instructions", "Buy some steak and some mayo"], ["user_id", 1], ["created_at", 2017-04-15 21:13:47 UTC], ["updated_at", 2017-04-15 21:13:47 UTC]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["recipe_id", 9], ["ingredient_id", 12], ["quantity", "2"], ["created_at", 2017-04-15 21:13:47 UTC], ["updated_at", 2017-04-15 21:13:47 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["recipe_id", 9], ["ingredient_id", 14], ["quantity", "2"], ["created_at", 2017-04-15 21:13:47 UTC], ["updated_at", 2017-04-15 21:13:47 UTC]]
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "recipes" SET "updated_at" = '2017-04-15 21:13:47.477085' WHERE "recipes"."id" = ?[0m  [["id", 9]]
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "ingredients" SET "updated_at" = '2017-04-15 21:13:47.474806' WHERE "ingredients"."id" = ?[0m  [["id", 12]]
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "ingredients" SET "updated_at" = '2017-04-15 21:13:47.477440' WHERE "ingredients"."id" = ?[0m  [["id", 14]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/recipes/9
+Completed 302 Found in 47ms (ActiveRecord: 7.8ms)
+
+
+Started GET "/recipes/9" for 127.0.0.1 at 2017-04-15 17:13:47 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (0.2ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = 9[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (12, 14)[0m
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 43ms (Views: 33.1ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" ORDER BY "recipes"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35mSQL (6.0ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = ?[0m  [["id", 9]]
+Started GET "/users/1/recipes/new" for 127.0.0.1 at 2017-04-15 17:14:59 -0400
+Processing by RecipesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/new.html.erb within layouts/application
+  Rendered recipes/_form.html.erb (10.6ms)
+  Rendered recipes/new.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 157ms (Views: 57.8ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/users/1/recipes" for 127.0.0.1 at 2017-04-15 17:15:26 -0400
+Processing by RecipesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9MzYGq45yx3jvZ71lMN5ZnrjaD1aUVUAJ7769tsCOV2FFQVRo1od18CdlkgCeZ1TXtTeCB7s4TgNHPbv4hv0PA==", "recipe"=>{"name"=>"Steak tartare", "description"=>"Raw steak and mayo", "instructions"=>"Mix steak and mayo", "ingredients_attributes"=>{"0"=>{"name"=>"Steak", "quantity"=>"2"}, "1"=>{"name"=>"Steak", "quantity"=>"2"}, "2"=>{"name"=>"", "quantity"=>""}, "3"=>{"name"=>"", "quantity"=>""}, "4"=>{"name"=>"", "quantity"=>""}}}, "commit"=>"Create Recipe", "user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "Steak"], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."name" = ? LIMIT ?[0m  [["name", "Steak"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "recipes" ("name", "instructions", "user_id", "created_at", "updated_at", "description") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Steak tartare"], ["instructions", "Mix steak and mayo"], ["user_id", 1], ["created_at", 2017-04-15 21:15:26 UTC], ["updated_at", 2017-04-15 21:15:26 UTC], ["description", "Raw steak and mayo"]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["recipe_id", 10], ["ingredient_id", 12], ["quantity", "2"], ["created_at", 2017-04-15 21:15:26 UTC], ["updated_at", 2017-04-15 21:15:26 UTC]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["recipe_id", 10], ["ingredient_id", 12], ["quantity", "2"], ["created_at", 2017-04-15 21:15:26 UTC], ["updated_at", 2017-04-15 21:15:26 UTC]]
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "recipes" SET "updated_at" = '2017-04-15 21:15:26.505134' WHERE "recipes"."id" = ?[0m  [["id", 10]]
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "ingredients" SET "updated_at" = '2017-04-15 21:15:26.502751' WHERE "ingredients"."id" = ?[0m  [["id", 12]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/recipes/10
+Completed 302 Found in 58ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/recipes/10" for 127.0.0.1 at 2017-04-15 17:15:26 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (0.3ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = 10[0m
+  [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" = 12[0m
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/show.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 71ms (Views: 58.4ms | ActiveRecord: 1.2ms)
+
+

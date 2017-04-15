@@ -6,7 +6,7 @@
         <%= pluralize(@recipe.errors.count, "error") %>
         prohibited this recipe from being saved:
       </h2>
-   
+
       <ul>
       <% @recipe.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -14,9 +14,12 @@
       </ul>
     </div>
   <% end %>
-
+  
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
+
+  <%= f.label :description %><br>
+  <%= f.text_area :description %><br>
 
   <%= f.label :instructions %><br>
   <%= f.text_area :instructions %><br>
