@@ -2,7 +2,7 @@ class Recipe < ApplicationRecord
 	belongs_to :user
 	has_many :recipe_ingredients
 	has_many :ingredients, through: :recipe_ingredients
-	has_many :ratings
+	has_many :comments
 
 	validates :name, presence: true
 	validates_associated :ingredients
@@ -16,7 +16,7 @@ class Recipe < ApplicationRecord
 				ingredient = Ingredient.find_or_create_by!(name: value[:name])
 				self.recipe_ingredients.build(ingredient_id: ingredient.id, quantity: value[:quantity])
 			end
-		end	
+		end
 	end
 
 end

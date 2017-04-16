@@ -20,7 +20,9 @@
 <!-- <h1>Repeat issue</h1>
 <div id="recipe_handlebars"></div> -->
 
-<h3>Comment on this recipe</h3>
+<h3>Comments</h3>
+
+
 
 <%= form_for @comment do |f| %>
 
@@ -31,6 +33,23 @@
 
 <% end %>
 
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    $('form').submit(function(event) {
+      //prevent form from submitting the default way
+      event.preventDefault();
+
+      var values = $(this).serialize();
+
+      var posting = $.post('/comments', values);
+
+      posting.done(function(data) {
+        $("#comment_body").text(["title"]);
+        $("#postBody").text(post["description"]);
+      });
+    });
+  });
+</script>
 
 
 <script type="text/javascript">
