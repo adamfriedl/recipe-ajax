@@ -7,7 +7,7 @@
 <h3>Ingredients</h3>
 <ul>
 	<% @recipe.recipe_ingredients.each do |ri| %>
-	  <li><span class='recipeIngredientName'><%= ri.ingredient.name %></span> -
+	  <li><%= ri.ingredient.name %> -
 	  <%= ri.quantity %> units</li>
 <% end %>
 </ul>
@@ -26,7 +26,13 @@ $(() => {
 			// debugger
 			$('.recipeName').html(data['name']);
 			$('.recipeDescription').html(data['description']);
-			$('.recipeIngredientName').html(data['recipe_ingredients'][0]['ingredient-id'])
+			$.each(data['recipe_ingredient'], function(quantity) {
+				// $.each(this, function(ingredient_id, quantity) {
+					console.log(quantity + ' units');
+				// });
+			});
+
+			// $('.recipeIngredientName').html(data['recipe_ingredients'][0]['ingredient-id'])
       $('.recipeInstructions').html(data['instructions']);
       // re-set the id to current on the link
       $('.js-next').attr('data-id', data['id']);
