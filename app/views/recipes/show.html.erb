@@ -1,10 +1,10 @@
 <h1 class="recipeName"><%= @recipe.name %></h1>
 <p>by <%= link_to @recipe.user.email, user_path(@recipe.user) %></p>
 
-<h3>Description</h3>
+<h2>Description</h2>
 <p class='recipeDescription'><%= @recipe.description %></p>
 
-<h3>Ingredients</h3>
+<h2>Ingredients</h2>
 <ul>
 	<% @recipe.recipe_ingredients.each do |ri| %>
 	  <li><%= ri.ingredient.name %> -
@@ -12,13 +12,24 @@
 <% end %>
 </ul>
 
-<h3>Instructions</h3>
+<h2>Instructions</h2>
 <p class='recipeInstructions'><%= @recipe.instructions %></p>
 
 <a href="#" class='js-next' data-id='<%= @recipe.id %>'>Next recipe...</a>
 
 <!-- <h1>Repeat issue</h1>
 <div id="recipe_handlebars"></div> -->
+
+<h3>Comment on this recipe</h3>
+
+<%= form_for @comment do |f| %>
+
+<%= f.label :body %><br>
+<%= f.text_field :body %><br>
+
+<%= f.submit %>
+
+<% end %>
 
 
 
