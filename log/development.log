@@ -37151,3 +37151,96 @@ Processing by CommentsController#index as HTML
 Completed 200 OK in 9ms (Views: 3.3ms | ActiveRecord: 0.7ms)
 
 
+Started GET "/recipes" for 127.0.0.1 at 2017-04-16 09:40:33 -0400
+Processing by RecipesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" ORDER BY "recipes"."created_at" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" ORDER BY "recipes"."created_at" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/_most_recent.html.erb (18.0ms)
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/_all_recipes.html.erb (22.5ms)
+  Rendered recipes/index.html.erb within layouts/application (25.4ms)
+Completed 200 OK in 93ms (Views: 62.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/recipes/1" for 127.0.0.1 at 2017-04-16 09:40:35 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (0.8ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = 1[0m
+  [1m[36mIngredient Load (1.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (1, 2)[0m
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  Rendered recipes/show.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 115ms (Views: 52.5ms | ActiveRecord: 5.7ms)
+
+
+Started POST "/recipes/1/comments" for 127.0.0.1 at 2017-04-16 09:40:41 -0400
+Processing by CommentsController#create as */*
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SX7VQDtzBcHFNCZ5svKumKRiQYJr165n+IEORlb9FlOWT1aXTGjmHFnMvc4D8q2egzB8RjEDdECZf32Z0PkIqg==", "comment"=>{"body"=>"Comments!!!"}, "recipe_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `comment' for #<Recipe:0x007fa9a2e2c888>
+Did you mean?  comments
+               comments=):
+  
+app/controllers/comments_controller.rb:22:in `create'
+  Rendering /Users/ajfriedl/.gem/ruby/2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb
+  Rendering /Users/ajfriedl/.gem/ruby/2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb
+  Rendered /Users/ajfriedl/.gem/ruby/2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.text.erb (1.0ms)
+  Rendering /Users/ajfriedl/.gem/ruby/2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb
+  Rendered /Users/ajfriedl/.gem/ruby/2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.8ms)
+  Rendering /Users/ajfriedl/.gem/ruby/2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb
+  Rendered /Users/ajfriedl/.gem/ruby/2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.0ms)
+  Rendered /Users/ajfriedl/.gem/ruby/2.3.1/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.text.erb (94.5ms)
+Started GET "/recipes/1" for 127.0.0.1 at 2017-04-16 09:41:18 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (0.1ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = 1[0m
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (1, 2)[0m
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  Rendered recipes/show.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 111ms (Views: 49.0ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/recipes/1/comments" for 127.0.0.1 at 2017-04-16 09:41:26 -0400
+Processing by CommentsController#create as */*
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bUeGnavYY+l7zDYixlCrXjdfoIUNVSC5vNGEE4B/hpyJ/JDfeKlJT0zC4f6i27HjmreXyNTNJsLxScOcxOXk7Q==", "comment"=>{"body"=>"Comments!!!"}, "recipe_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "comments" ("user_id", "recipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["user_id", 1], ["recipe_id", 1], ["created_at", 2017-04-16 13:41:26 UTC], ["updated_at", 2017-04-16 13:41:26 UTC]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+[active_model_serializers] Rendered CommentSerializer with ActiveModelSerializers::Adapter::Attributes (30.95ms)
+Completed 201 Created in 81ms (Views: 36.4ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/recipes/1" for 127.0.0.1 at 2017-04-16 09:41:29 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (0.3ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = 1[0m
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (1, 2)[0m
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  Rendered recipes/show.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 56ms (Views: 44.1ms | ActiveRecord: 1.9ms)
+
+
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m

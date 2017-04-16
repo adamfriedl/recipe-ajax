@@ -19,7 +19,8 @@ class CommentsController < ApplicationController
 
   def create
     recipe = Recipe.find(params[:recipe_id])
-    @comment = recipe.comment.new(params[:comment_params])
+    @comment = recipe.comments.new(params[:comment_params])
+    @comment.user = current_user
     @comment.save
     render json: @comment, status: 201
   end
