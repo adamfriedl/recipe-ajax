@@ -17,19 +17,20 @@
 
 <a href="#" class='js-next' data-id='<%= @recipe.id %>'>Next recipe...</a>
 
-<!-- <h1>Repeat issue</h1>
-<div id="recipe_handlebars"></div> -->
-
 <h3>Comments</h3>
 
-<% @recipe.comments.each do |c| %>
+<!-- Existing comments  -->
+<div class="recipeComments">
+	<% @recipe.comments.each do |c| %>
 	<p><strong><%= c.user.email %> says:</strong><br>
-	<%= c.body %></p>
-<% end %>
+		<%= c.body %></p>
+		<% end %>
+</div>
 
 <!-- New comment appended by JS -->
 <p id="js-comment"></p>
 
+<!-- New comment form -->
 <%= form_for(:comment) do |f| %>
 
 <%= f.label :body, 'New comment' %><br>
@@ -39,6 +40,7 @@
 
 <% end %>
 
+<!-- Submit comment through form -->
 <script type="text/javascript" charset="utf-8">
   $(function () {
     $('form').submit(function(event) {
@@ -50,13 +52,13 @@
       var posting = $.post('/recipes/<%= @recipe.id %>/comments', values);
 
       posting.done(function(data) {
-        $("#js-comment").html(`<strong>${data['user']['email']} says:</strong><br>${data['body']}`)
+        $("#js-comment").html(`<strong>${data['user']['email']} says:</strong><br>${data['body']}`);
       });
     });
   });
 </script>
 
-
+<!-- Next link browses to next recipe -->
 <script type="text/javascript">
 $(() => {
   $(".js-next").on("click", function(e) {
@@ -71,8 +73,15 @@ $(() => {
 				console.log(ri['quantity'] + ' units');
 			});
       $('.recipeInstructions').html(data['instructions']);
+			$('.recipeComments').html(
+				$.each(data['comments'], function(index, value) {
+					`<p>${value['body']}</p>`
+				});
+			);
+		);
       // re-set the id to current on the link
-      $('.js-next').attr('data-id', data['id']);
+
+			$('.js-next').attr('data-id', data['id']);
     });
   });
 });
