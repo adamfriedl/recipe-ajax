@@ -27,6 +27,9 @@
 	<%= c.body %></p>
 <% end %>
 
+<!-- New comment appended by JS -->
+<p id="js-comment"></p>
+
 <%= form_for(:comment) do |f| %>
 
 <%= f.label :body, 'New comment' %><br>
@@ -46,9 +49,9 @@
 
       var posting = $.post('/recipes/<%= @recipe.id %>/comments', values);
 
-      // posting.done(function(data) {
-      //   $("#comment_body").text(["title"]);
-      // });
+      posting.done(function(data) {
+        $("#js-comment").html(`<strong>${data['user']['email']} says:</strong><br>${data['body']}`)
+      });
     });
   });
 </script>
