@@ -1,14 +1,26 @@
 class CommentsController < ApplicationController
 
   def index
-    @comments = Comment.all
+    @comments = Recipe.find(params[:recipe_id]).comments
     render json: @comments
   end
 
+  # def index
+  #   if params[:user_id]
+  #     @recipes = User.find(params[:user_id]).recipes
+  #     @user = User.find(params[:user_id])
+  #   else
+  #     @recipes = Recipe.all
+  #   end
+
+  def new
+    @comment = Comment.new
+  end
+
   def create
-    recipe = Recipe.find(params[:user_id])
-    user = current_user
-    @comment = Comment.create(comment_params)
+    recipe = Recipe.find(params[:recipe_id])
+    @comment = recipe.comment.new(params[:comment_params])
+    @comment.save
     render json: @comment, status: 201
   end
 

@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   root 'welcome#home'
 
   resources :ingredients
-  resources :recipes, only: [:index, :show]
+  resources :recipes, only: [:index, :show] do
     resources :comments
+  end
   resources :users do
   	resources :recipes, only: [:index, :new, :create, :show]
   end

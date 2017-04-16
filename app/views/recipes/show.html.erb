@@ -26,11 +26,7 @@
 <p><%= c.body %></p>
 <% end %>
 
-<%= form_for :comment do |f| %>
-
-<%= f.hidden_field :user_id, value: current_user.id %>
-<%= f.hidden_field :recipe_id, value: @recipe.id %>
-
+<%= form_for(:comment) do |f| %>
 
 <%= f.label :body, 'New comment' %><br>
 <%= f.text_area :body %><br>
@@ -47,11 +43,11 @@
 
       var values = $(this).serialize();
 
-      var posting = $.post('/comments', values);
+      var posting = $.post('/recipes/<%= @recipe.id %>/comments', values);
 
-      posting.done(function(data) {
-        $("#comment_body").text(["title"]);
-      });
+      // posting.done(function(data) {
+      //   $("#comment_body").text(["title"]);
+      // });
     });
   });
 </script>
