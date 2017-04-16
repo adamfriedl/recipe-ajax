@@ -17,22 +17,24 @@
 
 <a href="#" class='js-next' data-id='<%= @recipe.id %>'>Next recipe...</a>
 
+<!-- <h1>Repeat issue</h1>
+<div id="recipe_handlebars"></div> -->
+
+
+
 <script type="text/javascript">
 $(() => {
   $(".js-next").on("click", function(e) {
 		e.preventDefault();
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/recipes/" + nextId + '.json', (data) => {
-			// debugger
 			$('.recipeName').html(data['name']);
 			$('.recipeDescription').html(data['description']);
-			$.each(data['recipe_ingredient'], function(quantity) {
-				// $.each(this, function(ingredient_id, quantity) {
-					console.log(quantity + ' units');
-				// });
-			});
 
-			// $('.recipeIngredientName').html(data['recipe_ingredients'][0]['ingredient-id'])
+			// This does not work. Need to figure out how to show ingredients.
+			$(data.recipe_ingredients).each( function(ri) {
+				console.log(ri['quantity'] + ' units');
+			});
       $('.recipeInstructions').html(data['instructions']);
       // re-set the id to current on the link
       $('.js-next').attr('data-id', data['id']);
@@ -40,3 +42,30 @@ $(() => {
   });
 });
 </script>
+
+<!-- <h3>Ingredients</h3>
+<ul>
+	<% @recipe.recipe_ingredients.each do |ri| %>
+	<li><%= ri.ingredient.name %> -
+		<%= ri.quantity %> units</li>
+		<% end %>
+	</ul> -->
+
+
+	<!-- <script type="text/javascript">
+	$(() => {
+		$('.js-next').on('click', function(e) {
+			e.preventDefault;
+			nextRecipe();
+		})
+	})
+	</script>
+
+	<script id="recipe-template" type="text/x-handlebars-template">
+		<h1 {{name}}</h1>
+		<h3>Description</h3>
+		<p {{description}}</p>
+
+		<h3>Instructions</h3>
+		<p class='recipeInstructions'><%= @recipe.instructions %></p>
+	</script> -->

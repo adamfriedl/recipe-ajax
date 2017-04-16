@@ -40,6 +40,8 @@ gem 'omniauth-facebook'
 gem 'rb-readline'
 # Use Active Model Serializer
 gem 'active_model_serializers'
+# Handlebars for templates
+gem 'handlebars', '~> 0.7.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
