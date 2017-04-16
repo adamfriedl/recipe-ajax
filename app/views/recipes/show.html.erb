@@ -69,16 +69,14 @@ $(() => {
 			$('.recipeDescription').html(data['description']);
 
 			// This does not work. Need to figure out how to show ingredients.
-			$(data.recipe_ingredients).each( function(ri) {
-				console.log(ri['quantity'] + ' units');
-			});
       $('.recipeInstructions').html(data['instructions']);
-			$('.recipeComments').html(
-				$.each(data['comments'], function(index, value) {
-					`<p>${value['body']}</p>`
-				});
-			);
-		);
+
+
+			$.each(data['comments'], function(index, value) {
+					$('.recipeComments').html(`<p>${value['body']}</p>`)
+				console.log(value['body'])
+			})
+
       // re-set the id to current on the link
 
 			$('.js-next').attr('data-id', data['id']);
