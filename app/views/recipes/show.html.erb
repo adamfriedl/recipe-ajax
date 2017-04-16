@@ -28,6 +28,10 @@
 
 <%= form_for :comment do |f| %>
 
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :recipe_id, value: @recipe.id %>
+
+
 <%= f.label :body, 'New comment' %><br>
 <%= f.text_area :body %><br>
 
@@ -47,7 +51,6 @@
 
       posting.done(function(data) {
         $("#comment_body").text(["title"]);
-        $("#postBody").text(post["description"]);
       });
     });
   });

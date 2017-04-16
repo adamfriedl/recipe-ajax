@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :comments
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
   authenticated :user do
@@ -10,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :ingredients
   resources :recipes, only: [:index, :show]
+    resources :comments
   resources :users do
   	resources :recipes, only: [:index, :new, :create, :show]
   end
