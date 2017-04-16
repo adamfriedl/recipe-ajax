@@ -72,8 +72,10 @@ $(() => {
       $('.recipeInstructions').html(data['instructions']);
 
 
+			$('.recipeComments').html('')
 			$.each(data['comments'], function(index, value) {
-					$('.recipeComments').html(`<p>${value['body']}</p>`)
+					var comment = (`<p>${value['body']}</p>`)
+					$('.recipeComments').append(comment)
 				console.log(value['body'])
 			})
 
