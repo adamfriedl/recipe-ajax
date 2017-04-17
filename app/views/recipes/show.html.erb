@@ -52,9 +52,8 @@
       var posting = $.post('/recipes/<%= @recipe.id %>/comments', values);
 
       posting.done(function(data) {
-				var newComment = new Comment()
-				newComment.addComment(data['recipe']['id'], data['user']['id'], data['body'])
-				// $("#js-comment").html(`<strong>${data['user']['email']} says:</strong><br>${data['body']}`);
+				var newCom = new Comment(data['user']['email'], data['body'])
+				newCom.addComment()
       });
     });
   });

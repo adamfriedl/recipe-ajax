@@ -1,10 +1,8 @@
-function Comment (recipe_id, user_id, body) {
-  this.recipe_id = recipe_id;
-  this.user_id = user_id;
+function Comment (user_email, body) {
+  this.user_email = user_email;
   this.body = body;
 }
 
 Comment.prototype.addComment = function() {
-  var comment = (`<p><strong>${value[user_id.email]} says:</strong><br>${value['body']}</p>`)
-  $('.recipeComments').append(comment)
+  $('.recipeComments').append('<p><strong>' + this.user_email + ' says:</strong><br>' + this.body + '</p>')
 }
