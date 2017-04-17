@@ -65,17 +65,24 @@ $(() => {
 		e.preventDefault();
     var nextId = parseInt($(".js-next").attr("data-id")) + 1;
     $.get("/recipes/" + nextId + '.json', (data) => {
+
+			// Name
 			$('.recipeName').html(data['name']);
+
+			// Description
 			$('.recipeDescription').html(data['description']);
 
-			// This does not work. Need to figure out how to show ingredients.
-
+			// Ingredients
 			$('.recipeIngredients').html('')
 			$.each(data['ingredients'], function(index, value) {
 				var ingredient = (`<li>${value['name']} - ${value['quantity']} units</li>`)
 				$('.recipeIngredients').append(ingredient)
 			});
 
+			// Instructions
+			$('.recipeInstructions').html(data['instructions']);
+
+			// Comments
 			$('.recipeComments').html('')
 			$.each(data['comments'], function(index, value) {
 				var comment = (`<p><strong>${value['user_id']} says:</strong><br>${value['body']}</p>`)
