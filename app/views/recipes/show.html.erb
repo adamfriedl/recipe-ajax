@@ -91,36 +91,8 @@ $(() => {
 			});
 
       // re-set the id to current on the link
-
 			$('.js-next').attr('data-id', data['id']);
     });
   });
 });
 </script>
-
-<!-- <h3>Ingredients</h3>
-<ul>
-	<% @recipe.recipe_ingredients.each do |ri| %>
-	<li><%= ri.ingredient.name %> -
-		<%= ri.quantity %> units</li>
-		<% end %>
-	</ul> -->
-
-
-	<!-- <script type="text/javascript">
-	$(() => {
-		$('.js-next').on('click', function(e) {
-			e.preventDefault;
-			nextRecipe();
-		})
-	})
-	</script>
-
-	<script id="recipe-template" type="text/x-handlebars-template">
-		<h1 {{name}}</h1>
-		<h3>Description</h3>
-		<p {{description}}</p>
-
-		<h3>Instructions</h3>
-		<p class='recipeInstructions'><%= @recipe.instructions %></p>
-	</script> -->
