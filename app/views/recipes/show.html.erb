@@ -5,7 +5,7 @@
 <p class='recipeDescription'><%= @recipe.description %></p>
 
 <h2>Ingredients</h2>
-<ul>
+<ul class='recipeIngredients'>
 	<% @recipe.recipe_ingredients.each do |ri| %>
 	  <li><%= ri.ingredient.name %> -
 	  <%= ri.quantity %> units</li>
@@ -69,15 +69,18 @@ $(() => {
 			$('.recipeDescription').html(data['description']);
 
 			// This does not work. Need to figure out how to show ingredients.
-      $('.recipeInstructions').html(data['instructions']);
 
+			$('.recipeIngredients').html('')
+			$.each(data['ingredients'], function(index, value) {
+				var ingredient = (`<li>${value['name']} - ${value['quantity']} units</li>`)
+				$('.recipeIngredients').append(ingredient)
+			});
 
 			$('.recipeComments').html('')
 			$.each(data['comments'], function(index, value) {
-					var comment = (`<p>${value['body']}</p>`)
-					$('.recipeComments').append(comment)
-				console.log(value['body'])
-			})
+				var comment = (`<p><strong>${value['user_id']} says:</strong><br>${value['body']}</p>`)
+				$('.recipeComments').append(comment)
+			});
 
       // re-set the id to current on the link
 
