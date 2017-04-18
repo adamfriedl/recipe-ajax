@@ -94,12 +94,9 @@ $(() => {
 				var ingredient = (`<li>${value['name']} - `)
 				var quantity = (`${data['recipe_ingredients'][index]['quantity']} units</li>`)
 				// $.each(data['recipe_ingredients'], function(index, value) {
-				// 	// debugger;
 				// 	var quantity = (`${value['quantity']} units</li>`)
-					ing_quan = ingredient + quantity
-					debugger;
-					$('.recipeIngredients').append(ing_quan)
-				});
+				ing_quan = ingredient + quantity
+				$('.recipeIngredients').append(ing_quan)
 			});
 
 
@@ -110,6 +107,7 @@ $(() => {
 			$('.recipeComments').html('')
 			$.each(data['comments'], function(index, value) {
 				var comment = (`<p><strong>${value['user_id']} says:</strong><br>${value['body']}</p>`)
+				debugger;
 				$('.recipeComments').append(comment)
 			});
 
@@ -117,4 +115,5 @@ $(() => {
 			$('.js-next').attr('data-id', data['id']);
     });
   });
+});
 </script>
