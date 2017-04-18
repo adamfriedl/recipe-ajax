@@ -106,8 +106,9 @@ $(() => {
 			// Comments
 			$('.recipeComments').html('')
 			$.each(data['comments'], function(index, value) {
-				var comment = (`<p><strong>${value['user_id']} says:</strong><br>${value['body']}</p>`)
-				debugger;
+				var user = (`<p><strong>${value['user']['email']} says:</strong> `)
+				var body = (`<br>${value['body']}</p>`)
+				var comment = user + body
 				$('.recipeComments').append(comment)
 			});
 
