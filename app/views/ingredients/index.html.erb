@@ -2,6 +2,10 @@
 
 <ul>
 	<% @ingredients.each do |ing| %>
-		<li><%= link_to ing.name, ingredient_path(ing) %></li>
+		<li><button class='js-button' data-id="<%= ing.id %>"><%= ing.name %></button></li>
 	<% end %>
 </ul>
+
+<script type="text/javascript">
+
+</script>
