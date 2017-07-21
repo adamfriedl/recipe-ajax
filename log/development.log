@@ -48323,3 +48323,82 @@ Processing by RecipesController#show as HTML
 Completed 200 OK in 116ms (Views: 106.8ms | ActiveRecord: 1.8ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-07-21 11:45:20 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#home as HTML
+  Rendering welcome/home.html.erb within layouts/application
+  Rendered welcome/home.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 493ms (Views: 490.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-07-21 11:45:27 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /Users/ajfriedl/.gem/ruby/2.3.1/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/ajfriedl/.gem/ruby/2.3.1/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (1.6ms)
+  Rendered /Users/ajfriedl/.gem/ruby/2.3.1/gems/devise-4.2.0/app/views/devise/sessions/new.html.erb within layouts/application (42.0ms)
+Completed 200 OK in 120ms (Views: 80.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2017-07-21 11:45:30 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /Users/ajfriedl/.gem/ruby/2.3.1/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/ajfriedl/.gem/ruby/2.3.1/gems/devise-4.2.0/app/views/devise/shared/_links.html.erb (3.0ms)
+  Rendered /Users/ajfriedl/.gem/ruby/2.3.1/gems/devise-4.2.0/app/views/devise/registrations/new.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 84ms (Views: 81.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2017-07-21 11:45:35 -0400
+Started GET "/users/auth/facebook" for 127.0.0.1 at 2017-07-21 11:45:35 -0400
+Started GET "/users/auth/facebook/callback?code=AQA1caxtYQ-IpmaDzyPiRFSe6hGTM3J754aNSFjJSl9sdONcpDweIBA4GcqxSiROQEil1lfmcKYtWXkC3FXEO107gGEw5b6ybhxwGXr3WMmn6Acis_9kHk78Glw3_-U6Kf_vJm5V-VN76aof6hNkwMcA028E_4HtAdq5a8l1sJSCITJO0X4XWM8k5CAusSeYXnVBHG2sR--DbFyTrokZkWmtZN6uImgWyMsdJ8l4aJ0zEggirHLgBG1xqwAsF3Z6BpHI5DcSkGUMTfE1N_wdR4KEFOE7zWIEJ9qS45jIGZDuVq31jRcXUc5lbxCnCwXnaK0&state=9f0220dd576f7c448b55041535465a201cd33b479c01a7cd" for 127.0.0.1 at 2017-07-21 11:45:36 -0400
+Processing by CallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQA1caxtYQ-IpmaDzyPiRFSe6hGTM3J754aNSFjJSl9sdONcpDweIBA4GcqxSiROQEil1lfmcKYtWXkC3FXEO107gGEw5b6ybhxwGXr3WMmn6Acis_9kHk78Glw3_-U6Kf_vJm5V-VN76aof6hNkwMcA028E_4HtAdq5a8l1sJSCITJO0X4XWM8k5CAusSeYXnVBHG2sR--DbFyTrokZkWmtZN6uImgWyMsdJ8l4aJ0zEggirHLgBG1xqwAsF3Z6BpHI5DcSkGUMTfE1N_wdR4KEFOE7zWIEJ9qS45jIGZDuVq31jRcXUc5lbxCnCwXnaK0", "state"=>"9f0220dd576f7c448b55041535465a201cd33b479c01a7cd"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = ? AND "users"."uid" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["provider", "facebook"], ["uid", "10155021432848415"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-07-21 15:45:36 UTC], ["last_sign_in_at", 2017-05-01 00:28:20 UTC], ["sign_in_count", 10], ["updated_at", 2017-07-21 15:45:36 UTC], ["id", 1]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-21 11:45:36 -0400
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by RecipesController#index as HTML
+  Rendering recipes/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "recipes"[0m
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" ORDER BY "recipes"."created_at" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" ORDER BY "recipes"."created_at" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/_most_recent.html.erb (42.4ms)
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  Rendered recipes/_all_recipes.html.erb (48.4ms)
+  Rendered recipes/index.html.erb within layouts/application (56.0ms)
+Completed 200 OK in 125ms (Views: 108.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/recipes/3" for 127.0.0.1 at 2017-07-21 11:45:56 -0400
+Processing by RecipesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mRecipeIngredient Load (0.2ms)[0m  [1m[34mSELECT "recipe_ingredients".* FROM "recipe_ingredients" WHERE "recipe_ingredients"."recipe_id" = 3[0m
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."id" IN (5, 6, 7)[0m
+  Rendering recipes/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."recipe_id" = ?[0m  [["recipe_id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered recipes/show.html.erb within layouts/application (53.3ms)
+Completed 200 OK in 257ms (Views: 126.4ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-07-21 12:05:55 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mRecipe Load (0.3ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered users/show.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 100ms (Views: 86.9ms | ActiveRecord: 1.3ms)
+
+
