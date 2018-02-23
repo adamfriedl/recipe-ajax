@@ -3,15 +3,31 @@
   <head>
     <title>The Recipe Box</title>
     <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
-  <%= render 'layouts/header' %>
-  <%= yield %>
+    <%= render 'layouts/header' %>
+
     
+    <% if user_signed_in? %>
+    
+    <div class="container">
+      <div class="columns is-centered is-desktop" style="margin-top: 4rem">
+        <div class="column is-three-fifths">
+          <%= yield %>	
+        </div>
+      </div>
+    </div>
+
+    <% else %>
+
+      <%= yield %>
+
+    <% end %>
+
   </body>
 </html>

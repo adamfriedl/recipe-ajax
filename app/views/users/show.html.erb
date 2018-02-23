@@ -1,26 +1,12 @@
-<h1><%= @user.email %></h1>
+<h2 class="subtitle is-4"><%= @user.email %></h2>
 
 <p>Account created on <%= @user.created_on %>.</p>
 
-<h2><%= @user.email %>'s Recipes</h2>
+<h3 class="subtitle is-5"><%= @user.email %>'s recipes:</h3>
 
 <ul>
   <% @user.recipes.each do |recipe| %>
-    <li><%= link_to recipe.name, recipe_path(recipe) %><br>
-    <button class='js-more' data-id='<%= recipe.id %>'>See Description</button><br >
-    <p id='description-<%= recipe.id %>'></p>
-    </li>
-
-  <% end %>
+    <li><%= link_to recipe.name, recipe_path(recipe) %><br></li>
 </ul>
 
-<script type="text/javascript">
-$(() => {
-  $('.js-more').on('click', function() {
-    var id = $(this).data('id');
-    $.get('/recipes/' + id + '.json', (data) => {
-      $('#description-' + id).html(data['description']);
-    });
-  });
-});
-</script>
+  <% end %>

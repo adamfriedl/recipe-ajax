@@ -1,10 +1,15 @@
-<h1 class="recipeName"><%= @recipe.name %></h1>
-<p>by <%= link_to @recipe.user.email, user_path(@recipe.user) %></p>
+<div style="margin-bottom: 2rem">
+<h2 class="title is-4" style="display: inline"><%= @recipe.name %></h2>
+<p style="display: inline">by <%= link_to @recipe.user.email, user_path(@recipe.user) %></p>
+</div>
 
-<h2>Description</h2>
+
+<div>
+<h3 class="title is-5 flat">Description</h3>
 <p class='recipeDescription'><%= @recipe.description %></p>
+</div>
 
-<h2>Ingredients</h2>
+<h3 class="title is-5">Ingredients</h3>
 <ul class='recipeIngredients'>
 	<% @recipe.recipe_ingredients.each do |ri| %>
 	  <li><%= ri.ingredient.name %> -
@@ -12,12 +17,12 @@
 	<% end %>
 </ul>
 
-<h2>Instructions</h2>
+<h3 class="title is-5">Instructions</h3>
 <p class='recipeInstructions'><%= @recipe.instructions %></p>
 
 <a href="#" class='js-next' data-id='<%= @recipe.id %>'>Next recipe...</a>
 
-<h3>Comments</h3>
+<h4 class="title is-6">Comments</h4>
 
 <!-- Existing comments  -->
 <div class="recipeComments">
