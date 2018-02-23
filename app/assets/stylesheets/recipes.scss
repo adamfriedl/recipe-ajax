@@ -1,6 +1,12 @@
-// Custom grid
+// Custom styles
 
 html,
 body {
   height: 100%;
+}
+
+.title:not(:last-child),
+.subtitle:not(:last-child) {
+  margin-bottom: 0.25rem;
+  margin-top: 1.5rem;
 }
