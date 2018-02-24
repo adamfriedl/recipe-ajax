@@ -1,8 +1,8 @@
-<h1>All Ingredients</h1>
+<h2 class="title is-4">All Ingredients</h2>
 
 <ul>
 	<% @ingredients.each do |ing| %>
-		<li><button class='js-button' data-id="<%= ing.id %>"><%= ing.name %></button></li>
+		<li><%= link_to ing.name, ingredient_path(ing) %></li>
 	<% end %>
 </ul>
 

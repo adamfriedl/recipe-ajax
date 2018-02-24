@@ -1,4 +1,6 @@
-<nav class="navbar is-transparent">
+<nav class="navbar 
+  <%= "is-primary" if user_signed_in? %>
+  ">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
       <h1 class="title is-3">Recipe Box</h1>
@@ -25,6 +27,9 @@
     </div>
 
     <div class="navbar-end">
+      <div class="navbar-item">  
+        <%= link_to 'Create a new recipe', new_user_recipe_path(current_user) %>
+      </div>
       <div class="navbar-item">  
         <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
       </div>

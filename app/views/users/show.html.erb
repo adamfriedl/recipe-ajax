@@ -4,9 +4,9 @@
 
 <h3 class="subtitle is-5"><%= @user.email %>'s recipes:</h3>
 
-<ul>
+
   <% @user.recipes.each do |recipe| %>
-    <li><%= link_to recipe.name, recipe_path(recipe) %><br></li>
-</ul>
+    <p><%= link_to recipe.name, recipe_path(recipe) %></p>
+
 
   <% end %>

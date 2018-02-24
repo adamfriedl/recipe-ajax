@@ -13,7 +13,7 @@
 <ul class='recipeIngredients'>
 	<% @recipe.recipe_ingredients.each do |ri| %>
 	  <li><%= ri.ingredient.name %> -
-	  <%= ri.quantity %> units</li>
+	  <%= ri.quantity %></li>
 	<% end %>
 </ul>
 
@@ -22,7 +22,7 @@
 
 <a href="#" class='js-next' data-id='<%= @recipe.id %>'>Next recipe...</a>
 
-<h4 class="title is-6">Comments</h4>
+<h4 class="title is-5">Comments</h4>
 
 <!-- Existing comments  -->
 <div class="recipeComments">
@@ -37,11 +37,14 @@
 
 <!-- New comment form -->
 <%= form_for(:comment) do |f| %>
+<div style="margin-bottom: -1.5rem">
+<%= f.label 'New comment', class: "label" %><br>
+</div>
+<%= f.text_area :body, class: "textarea" %><br>
 
-<%= f.label :body, 'New comment' %><br>
-<%= f.text_area :body %><br>
-
-<%= f.submit %>
+<div class="control">
+	<button class="button is-small">Submit</button>
+</div>
 
 <% end %>
 
