@@ -26,8 +26,8 @@
 
   <div class="label">Ingredients:</div>
     
-  <div class="field is-horizontal">
     <%= f.fields_for :ingredients do |ingredients_form| %>
+  <div class="field is-horizontal">
       <div class="field-label">
         <%= ingredients_form.label :name, class: "label" %>
       </div>
@@ -41,14 +41,14 @@
       </div>
       <div class="field-body">
         <div class="field">
-          <input type="text" class="input" name="recipe[ingredients_attributes][<%= ingredients_form.index %>][quantity]" %>
+          <input type="number" class="input" name="recipe[ingredients_attributes][<%= ingredients_form.index %>][quantity]" %>
         </div>
       </div>
-    <br />
   </div>
   <% end %>
+  <br />
     <div class="control">
-      <button class="button is-small">Submit</button>
+      <button class="button is-small is-primary">Submit</button>
     </div>
 
 
